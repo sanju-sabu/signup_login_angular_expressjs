@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const db = require("./config/config").get(process.env.NODE_ENV);
+const cors = require('cors');
 const User = require("./models/user");
 const { auth } = require("./middlewares/auth");
 
 const app = express();
+app.use(cors());
 // app use
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
@@ -60,7 +62,7 @@ app.post("/api/login",  (req, res)=> {
     else {
       User.findOne({ email: req.body.email }, (err, user) => {
         if (!user)
-          return res.json({
+          return res.status(401).json({
             isAuth: false,
             message: " Auth failed ,email not found",
           });

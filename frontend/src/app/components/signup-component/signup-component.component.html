@@ -1,0 +1,47 @@
+<form [formGroup]="form">
+  <div class="container">
+    <label for="firstname"><b>First Name</b></label>
+    <input
+      type="text"
+      placeholder="Enter First Name"
+      formControlName="firstname"
+      required
+    />
+    <label for="lastname"><b>Last Name</b></label>
+    <input
+      type="text"
+      placeholder="Enter Last Name"
+      formControlName="lastname"
+      required
+    />
+    <label for="uname"><b>Username</b></label>
+    <input
+      type="text"
+      placeholder="Enter Username"
+      formControlName="email"
+      required
+    />
+
+    <label for="psw"><b>Password</b></label>
+    <input
+      type="password"
+      placeholder="Enter Password"
+      formControlName="password"
+      required
+    />
+    <label for="psw"><b>Password</b></label>
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      formControlName="password2"
+      required
+    />
+
+    <button [disabled]="!form.valid" type="submit" (click)="signUp()">
+      SignUp
+    </button>
+    <!-- <label>
+      <input type="checkbox" checked="checked" name="remember" /> Remember me
+    </label> -->
+  </div>
+</form>
