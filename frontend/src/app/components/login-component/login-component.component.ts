@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-component',
@@ -11,7 +12,12 @@ import { AuthService } from 'src/app/Services/auth.service';
 export class LoginComponentComponent implements OnInit {
  form!:FormGroup 
 
-  constructor(private auth: AuthService,private fb:FormBuilder,private route:Router) { }
+  constructor(
+    private auth: AuthService,
+    private fb:FormBuilder,
+    private route:Router,
+    private toastr:ToastrService
+    ) { }
 
   ngOnInit(): void {
     this.iniform();
@@ -27,11 +33,20 @@ export class LoginComponentComponent implements OnInit {
   Login():void{
     this.auth.login(this.form.getRawValue()).subscribe({
       next: (response: any) => {
-        console.log(response);   
-        this.route.navigate(['/login-user'])    
+        // console.log(response);   
+        if(response.message){
+          console.log(response.message);
+          this.toastr.error(response.message);
+          return           
+        }
+        this.route.navigate(['profile',response.id])    
       },
+      error:(err:any)=>{
+        this.toastr.error(err.error.message);
+        
+      }
     })
-    console.log(this.form.value);    
+    // console.log(this.form.value);    
   }
   
 }

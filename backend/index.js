@@ -104,6 +104,17 @@ app.get("/api/logout", auth, function (req, res) {
   });
 });
 
+app.get('/api/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) return res.status(404).send('User not found');
+
+    res.send(user);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 app.get("/", function (req, res) {
   res.status(200).send(`Welcome to login , sign-up api`);
 });

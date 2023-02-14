@@ -10,6 +10,8 @@ import { LoginComponentComponent } from './components/login-component/login-comp
 import { SignupComponentComponent } from './components/signup-component/signup-component.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginUserComponent } from './components/login-user/login-user.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { LoginUserComponent } from './components/login-user/login-user.component
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

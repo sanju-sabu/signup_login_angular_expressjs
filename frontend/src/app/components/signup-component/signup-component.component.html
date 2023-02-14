@@ -6,21 +6,21 @@
       placeholder="Enter First Name"
       formControlName="firstname"
       required
-    />
+    /><br>
     <label for="lastname"><b>Last Name</b></label>
     <input
       type="text"
       placeholder="Enter Last Name"
       formControlName="lastname"
       required
-    />
+    /><br>
     <label for="uname"><b>Username</b></label>
     <input
       type="text"
       placeholder="Enter Username"
       formControlName="email"
       required
-    />
+    /><br>
 
     <label for="psw"><b>Password</b></label>
     <input
@@ -28,18 +28,18 @@
       placeholder="Enter Password"
       formControlName="password"
       required
-    />
+    /><br>
     <label for="psw"><b>Password</b></label>
     <input
       type="password"
       placeholder="Confirm Password"
       formControlName="password2"
       required
-    />
+    /><br>
 
     <button [disabled]="!form.valid" type="submit" (click)="signUp()">
       SignUp
-    </button>
+    </button><br>
     <!-- <label>
       <input type="checkbox" checked="checked" name="remember" /> Remember me
     </label> -->

@@ -1,15 +1,16 @@
 <form [formGroup]="form">
 <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" formControlName="email" required>
+    <label for="uname"><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Username" formControlName="email" required><br>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password"  formControlName="password" required>
+    <label for="psw"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password"  formControlName="password" required><br>
 
-    <button [disabled]="!form.valid" type="submit" (click)="Login()">Login</button>
-    <label>
+    <button [disabled]="!form.valid" type="submit" (click)="Login()">Login</button><br>
+    <a href="/signup">Register</a>
+    <!-- <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
+    </label> -->
   </div>
 </form>
-<code>{{form.value|json}}</code>
+<!-- <code>{{form.value|json}}</code> -->

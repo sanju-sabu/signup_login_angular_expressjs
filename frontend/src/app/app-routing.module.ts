@@ -7,7 +7,7 @@ import { SignupComponentComponent } from './components/signup-component/signup-c
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
-  {path:'login-user',component:LoginUserComponent},
+  {path:'profile/:id',component:LoginUserComponent},
   {path:'login',component:LoginComponentComponent},
   {path:'signup',component:SignupComponentComponent}
 ];
